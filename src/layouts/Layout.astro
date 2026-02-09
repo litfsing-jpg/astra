@@ -14,7 +14,7 @@ interface Props {
     publishDate?: string;
 }
 
-const { title, description = "Блог Максима Андреюка о здоровом образе жизни, питании и привычках.", image = "/seo-image.jpg", articleSchema, publishDate } = Astro.props;
+const { title, description = "Блог Карповой Ольги о здоровом образе жизни, питании и привычках.", image = "/seo-image.jpg", articleSchema, publishDate } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -56,8 +56,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 "datePublished": publishDate,
                 "author": [{
                     "@type": "Person",
-                    "name": "Максим Андреюк",
-                    "url": "https://maksimandreyuk.ru/"
+                    "name": "Карпова Ольга",
+                    "url": "https://litfsing-jpg.github.io/astra/"
                 }]
             })} />
         )}
