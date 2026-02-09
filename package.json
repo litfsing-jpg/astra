@@ -1,0 +1,22 @@
+{
+  "name": "seo-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/montserrat": "^5.2.8",
+    "@fontsource/open-sans": "^5.2.7",
+    "astro": "^4.0.0",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.19"
+  }
+}

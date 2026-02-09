@@ -1,0 +1,48 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description} image={post.data.image} articleSchema publishDate={post.data.pubDate.toISOString()}>
+	<article class="prose prose-lg prose-indigo mx-auto mt-8">
+        <div class="text-center mb-12">
+            <span class="text-base text-[rgb(var(--accent))] font-semibold tracking-wide uppercase">{post.data.category}</span>
+            <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                {post.data.title}
+            </h1>
+            <div class="mt-4 flex justify-center items-center text-gray-500 text-sm">
+                <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                 <span class="mx-2">&middot;</span>
+                 <span>Максим Андреюк</span>
+            </div>
+        </div>
+        
+        {post.data.image && (
+            <div class="relative w-full h-96 mb-8 rounded-xl overflow-hidden shadow-lg">
+                <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover" />
+            </div>
+        )}
+
+		<Content />
+	</article>
+
+    <div class="mt-16 border-t pt-8 text-center">
+        <a href="/blog" class="text-base font-medium text-[rgb(var(--accent))] hover:text-indigo-500">
+            &larr; Вернуться к списку статей
+        </a>
+    </div>
+</Layout>

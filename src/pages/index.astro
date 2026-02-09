@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const title = "Блог Максима Андреюка";
+const description = "Статьи о здоровом образе жизни, питании и привычках.";
+---
+
+<Layout title={title} description={description}>
+    <div class="text-center py-12">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+            Блог о <span class="text-[rgb(var(--accent))]">здоровье</span>
+        </h1>
+        <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+            Практические советы, исследования и рекомендации по улучшению качества жизни.
+        </p>
+    </div>
+
+	<section class="mt-12">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+                <PostCard post={post} />
+            ))}
+        </div>
+    </section>
+</Layout>
