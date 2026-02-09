@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://litfsing-jpg.github.io/astra/sitemap-index.xml

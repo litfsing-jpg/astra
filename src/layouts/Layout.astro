@@ -16,6 +16,18 @@ interface Props {
 
 const { title, description = "Блог Карповой Ольги о здоровом образе жизни, питании и привычках.", image = "/seo-image.jpg", articleSchema, publishDate } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const base = import.meta.env.BASE_URL;
+const siteURL = Astro.site?.toString().replace(/\/$/, '') + base;
+
+// Breadcrumbs
+const pathSegments = Astro.url.pathname.replace(base, '').split('/').filter(Boolean);
+const breadcrumbItems = [
+	{ name: 'Главная', url: siteURL },
+	...pathSegments.map((seg, i) => ({
+		name: seg === 'blog' ? 'Блог' : decodeURIComponent(seg).replace(/-/g, ' '),
+		url: siteURL + pathSegments.slice(0, i + 1).join('/') + '/'
+	}))
+];
 ---
 
 <!doctype html>
@@ -45,20 +57,62 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<title>{title}</title>
         <ViewTransitions />
 
+        {/* Person (Author) — всегда */}
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Карпова Ольга",
+            "url": siteURL,
+            "jobTitle": "Эксперт по здоровому образу жизни и питанию",
+            "sameAs": []
+        })} />
+
+        {/* WebSite — всегда */}
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Блог Карповой Ольги",
+            "url": siteURL,
+            "description": "Практические советы, исследования и рекомендации по здоровому образу жизни и питанию",
+            "inLanguage": "ru"
+        })} />
+
+        {/* BreadcrumbList — всегда */}
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": breadcrumbItems.map((item, i) => ({
+                "@type": "ListItem",
+                "position": i + 1,
+                "name": item.name,
+                "item": item.url
+            }))
+        })} />
+
+        {/* BlogPosting + MedicalWebPage — для статей */}
         {articleSchema && (
             <script type="application/ld+json" set:html={JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "BlogPosting",
+                "@type": ["BlogPosting", "MedicalWebPage"],
                 "headline": title,
-                "image": [
-                    new URL(image, Astro.url).toString()
-                ],
+                "description": description,
+                "image": [new URL(image, Astro.url).toString()],
                 "datePublished": publishDate,
-                "author": [{
+                "dateModified": publishDate,
+                "inLanguage": "ru",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": canonicalURL.toString()
+                },
+                "author": {
                     "@type": "Person",
                     "name": "Карпова Ольга",
-                    "url": "https://litfsing-jpg.github.io/astra/"
-                }]
+                    "url": siteURL
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Карпова Ольга"
+                }
             })} />
         )}
 	</head>
