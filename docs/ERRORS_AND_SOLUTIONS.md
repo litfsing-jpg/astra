@@ -1,0 +1,128 @@
+# Ошибки и решения: Astro SEO-блог
+
+Документация по ошибкам, с которыми столкнулись при разработке, и их решениям.
+
+---
+
+## 1. GitHub Pages показывает 404 после деплоя
+
+**Симптом:** Workflow проходит success, но сайт выдаёт 404.
+
+**Причина:** Метод деплоя через `actions/deploy-pages@v4` (GitHub Actions artifact) требует точной настройки Pages Source. Иногда не подхватывается.
+
+**Решение:** Переключиться на деплой через ветку `gh-pages`:
+```yaml
+# .github/workflows/deploy.yml
+- name: Deploy to gh-pages branch
+  uses: peaceiris/actions-gh-pages@v4
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./dist
+```
+В Settings > Pages выбрать: **Source: Deploy from a branch** → **gh-pages** / **/ (root)**
+
+---
+
+## 2. Навигация ведёт на 404 (base path)
+
+**Симптом:** Ссылки «Главная», «Блог» ведут на несуществующие URL.
+
+**Причина:** Сайт живёт на `litfsing-jpg.github.io/astra/`, а ссылки в компонентах были захардкожены как `/`, `/blog` — без префикса `/astra/`.
+
+**Решение:** Использовать `import.meta.env.BASE_URL` во всех внутренних ссылках:
+```astro
+---
+const base = import.meta.env.BASE_URL;
+---
+<a href={base}>Главная</a>
+<a href={`${base}blog`}>Блог</a>
+<a href={`${base}blog/${post.slug}`}>Статья</a>
+```
+
+---
+
+## 3. Бургер-меню не работает после навигации
+
+**Симптом:** Мобильное меню открывается один раз, после перехода на другую страницу перестаёт работать.
+
+**Причина:** Astro View Transitions перезагружают DOM, но скрипт с addEventListener вешается только при первой загрузке.
+
+**Решение:** Обернуть в `astro:page-load`:
+```html
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+  });
+</script>
+```
+
+---
+
+## 4. npm ci падает в GitHub Actions (peer dependency conflict)
+
+**Симптом:** Workflow падает на шаге `Install dependencies` с ошибкой peer dependency.
+
+**Причина:** `@astrojs/mdx@4.x` несовместим с `astro@4.x`. Нужна версия MDX 2.x.
+
+**Решение:**
+```bash
+npm install @astrojs/mdx@2.3.1
+```
+Убедиться что `npm ci` работает локально перед пушем.
+
+---
+
+## 5. @astrojs/sitemap: Cannot read properties of undefined (reading 'reduce')
+
+**Симптом:** Build падает на этапе sitemap генерации.
+
+**Причина:** `@astrojs/sitemap@3.7.0` несовместим с Astro 4.
+
+**Решение:**
+```bash
+npm install @astrojs/sitemap@3.2.1
+```
+
+---
+
+## 6. Изображения не отображаются на GitHub Pages
+
+**Симптом:** Фото в статьях и карточках не загружаются (404).
+
+**Причина:** Пути к изображениям не учитывают base path `/astra/`.
+
+**Решение:** Добавить BASE_URL к путям изображений:
+```astro
+<img src={`${import.meta.env.BASE_URL}${post.data.image?.replace(/^\//, '')}`} alt={post.data.title} />
+```
+
+Для изображений в Markdown (внутри MDX-статей) использовать полные пути от корня:
+```markdown
+![Alt текст](/images/articles/photo.webp)
+```
+Astro с `base: '/astra/'` автоматически подставит префикс для Markdown-изображений.
+
+---
+
+## 7. git добавил файл с мусорным именем (Windows path)
+
+**Симптом:** В git попал файл с путём, содержащим Windows-разделители.
+
+**Причина:** Команда `cp` с обратными слешами (`\`) некорректно интерпретировалась в bash на Windows.
+
+**Решение:** Использовать прямые слеши в путях:
+```bash
+# Плохо:
+cp "E:\folder\file" "E:\dest\"
+
+# Хорошо:
+cp "E:/folder/file" "E:/dest/"
+```
+
+---
+
+*Последнее обновление: 09.02.2026*
