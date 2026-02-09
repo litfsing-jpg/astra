@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  text?: string;
+}
+
+const { href, text = "ЗАРЕГИСТРИРОВАТЬСЯ БЕСПЛАТНО" } = Astro.props;
+---
+
+<div class="my-8 text-center">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    class="inline-block px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+  >
+    {text}
+  </a>
+</div>
