@@ -14,14 +14,15 @@ Vault = папка проекта `E:\anti\seo-blog`.
 
 В Obsidian перейдите в папку: `src/content/blog/`
 
-Здесь лежат все статьи. Создавайте новые файлы прямо тут.
+Здесь лежат все статьи. Создавайте новые `.md` файлы прямо тут.
 
 ### Что видно в Obsidian
 
-- Папка `src/content/blog/` — ваши статьи
+- Папка `src/content/blog/` — ваши статьи (`.md` файлы)
+- Папка `src/content/blog/_SHABLON-statyi.md` — шаблон, копируйте его для новых статей
 - Папка `public/images/` — фото (covers и articles)
 - Папка `docs/` — документация (эта шпаргалка, ошибки)
-- Остальные папки (`src/pages/`, `src/components/`) — код сайта, трогать не нужно
+- Остальные папки — код сайта, трогать не нужно
 
 ### Установить плагин Obsidian Git
 
@@ -45,31 +46,22 @@ Vault = папка проекта `E:\anti\seo-blog`.
 - Settings → Hotkeys → найти «Obsidian Git: Commit all changes and push»
 - Назначить, например, `Ctrl+Shift+P`
 
-### Рабочий процесс
-
-1. Открыли Obsidian → перешли в `src/content/blog/`
-2. Создали файл `.mdx` → написали статью
-3. Фото положили в `public/images/covers/` или `public/images/articles/`
-4. Ctrl+P → «Commit all changes and push» — готово, через 1-2 мин сайт обновится
-
-### Нюанс с CTA-кнопками
-
-В Obsidian строки `import CtaButton...` и `<CtaButton ... />` будут видны как текст — это нормально. На сайте они превратятся в красивые кнопки.
-
 ---
 
-## Добавить новую статью
+## Как добавить новую статью
 
-### 1. Создайте файл
+### 1. Скопируйте шаблон
 
-Путь: `src/content/blog/` — создайте файл с расширением `.mdx`
+В Obsidian откройте `src/content/blog/_SHABLON-statyi.md` → ПКМ → **Make a copy**
 
-Имя файла = URL статьи. Используйте транслит через дефисы:
-- `moj-novyj-post.mdx` → сайт.com/astra/blog/moj-novyj-post
+Переименуйте копию:
+- Уберите `_` из начала
+- Дайте своё имя (латиница, дефисы): `moya-novaya-statya.md`
+- Имя файла = URL на сайте: `сайт/astra/blog/moya-novaya-statya`
 
 ### 2. Заполните шапку (frontmatter)
 
-В самом начале файла обязательно:
+В самом начале файла — между `---`:
 
 ```
 ---
@@ -81,7 +73,6 @@ image: "/images/covers/имя-файла.webp"
 ---
 ```
 
-**Поля:**
 | Поле | Обязательное | Что писать |
 |------|:---:|---|
 | title | Да | Заголовок. До 60 символов — идеально для Google |
@@ -90,12 +81,12 @@ image: "/images/covers/имя-файла.webp"
 | category | Нет | Категория: «Питание», «Здоровье» и т.д. |
 | image | Нет | Путь к обложке (см. раздел про фото) |
 
-### 3. Напишите контент
+### 3. Напишите текст
 
-После `---` пишите текст в формате Markdown:
+Обычный Markdown — Obsidian всё покажет с форматированием:
 
 ```markdown
-## Заголовок второго уровня
+## Заголовок раздела
 
 Обычный текст параграфа.
 
@@ -112,25 +103,19 @@ image: "/images/covers/имя-файла.webp"
 > Цитата или важная мысль
 ```
 
-### 4. Добавьте CTA-кнопку (если нужна)
+### 4. CTA-кнопка — автоматически!
 
-Сразу после frontmatter (после `---`) добавьте импорт:
+**Ничего вставлять не нужно.** Кнопка «Записаться на марафон» автоматически появляется в конце каждой статьи на сайте.
 
-```
-import CtaButton from '../../components/CtaButton.astro';
-```
+### 5. Опубликуйте
 
-Затем в тексте статьи вставьте кнопку:
+Ctrl+P → «Obsidian Git: Commit all changes and push» → Enter
 
-```
-<CtaButton href="https://lk.getfit.su/link/67srjzjg1" text="ЗАПИСАТЬСЯ НА МАРАФОН" />
-```
+Через 1-2 минуты статья появится на сайте.
 
-**Важно:** если используете CTA-кнопку, файл должен быть `.mdx`, не `.md`
+### 6. Пример готовой статьи
 
-### 5. Пример готовой статьи
-
-```mdx
+```markdown
 ---
 title: "Как улучшить сон: 5 проверенных способов"
 description: "Практические советы для улучшения качества сна. Режим, питание, обстановка — разбираем что реально работает."
@@ -138,7 +123,6 @@ pubDate: 2026-03-01
 category: "Здоровье"
 image: "/images/covers/son.webp"
 ---
-import CtaButton from '../../components/CtaButton.astro';
 
 ## Почему мы плохо спим
 
@@ -147,10 +131,6 @@ import CtaButton from '../../components/CtaButton.astro';
 ## Способ 1: Режим
 
 Текст...
-
-<CtaButton href="https://lk.getfit.su/link/67srjzjg1" text="УЗНАТЬ БОЛЬШЕ" />
-
-*Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 2VtzqXXXXXXXXXXX*
 ```
 
 ---
@@ -177,65 +157,30 @@ import CtaButton from '../../components/CtaButton.astro';
 
 ### Где брать фото
 
-- **Unsplash** (unsplash.com) — бесплатные фото, можно использовать с внешней ссылкой:
-  ```
-  image: "https://images.unsplash.com/photo-XXXXX?w=1200"
-  ```
-- **Свои фото** — конвертируйте в .webp для скорости загрузки
-- Онлайн-конвертер: squoosh.app
+- **Unsplash** (unsplash.com) — бесплатные фото
+- **Свои фото** — конвертируйте в .webp (онлайн: squoosh.app)
 
 ### Структура папок для фото
 
 ```
-public/
-└── images/
-    ├── covers/          ← обложки статей
-    │   ├── pravilnoe-pitanie.webp
-    │   ├── privychki-zdorovya.webp
-    │   └── vodnyj-balans.webp
-    └── articles/        ← фото внутри статей
-        ├── pochemu-ne-khudeyu.webp
-        └── fdgfg.webp
+public/images/
+├── covers/          ← обложки статей
+│   ├── pravilnoe-pitanie.webp
+│   ├── privychki-zdorovya.webp
+│   ├── vodnyj-balans.webp
+│   └── shablon-statyi.webp
+└── articles/        ← фото внутри статей
+    └── pochemu-ne-khudeyu.webp
 ```
-
----
-
-## Опубликовать изменения
-
-После добавления статьи или фото нужно запушить на GitHub:
-
-```bash
-cd E:\anti\seo-blog
-git add .
-git commit -m "Описание: что добавили"
-git push
-```
-
-Или через **VS Code**: Source Control → Stage All → Commit → Push
-
-Или через **GitHub Desktop**: Commit → Push
-
-Деплой автоматический — через 1-2 минуты сайт обновится.
 
 ---
 
 ## Чек-лист перед публикацией
 
-- [ ] Имя файла — транслит через дефисы, `.mdx`
+- [ ] Имя файла — латиница, дефисы, `.md`
 - [ ] title — до 60 символов
 - [ ] description — 120-160 символов
 - [ ] pubDate — дата в формате ГГГГ-ММ-ДД
-- [ ] image — обложка загружена в `public/images/covers/`
+- [ ] image — обложка в `public/images/covers/`
 - [ ] Текст — есть заголовки H2/H3, списки, абзацы
-- [ ] CTA — есть импорт CtaButton (если используется)
-- [ ] Пуш — `git add . && git commit -m "..." && git push`
-
----
-
-## Быстрые команды
-
-| Действие | Команда |
-|----------|---------|
-| Локальный просмотр | `npm run dev` → открыть http://localhost:4321/astra/ |
-| Проверить сборку | `npm run build` |
-| Запушить | `git add . && git commit -m "сообщение" && git push` |
+- [ ] Пуш — Ctrl+P → «Commit all changes and push»
