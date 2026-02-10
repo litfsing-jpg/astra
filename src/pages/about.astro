@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+const siteURL = Astro.site?.toString().replace(/\/$/, '') + base;
+---
+
+<Layout title="Об авторе — Карпова Ольга" description="Карпова Ольга — эксперт по здоровому образу жизни и питанию. Узнайте больше об авторе блога, образовании и опыте работы.">
+  <!-- ProfilePage Schema -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Карпова Ольга",
+        "url": siteURL,
+        "jobTitle": "Эксперт по здоровому образу жизни и питанию",
+        "description": "Специалист в области нутрициологии, здорового питания и формирования полезных привычек",
+        "sameAs": []
+      }
+    })} />
+  </Fragment>
+
+  <div class="max-w-4xl mx-auto">
+    <!-- Заголовок -->
+    <div class="text-center py-8">
+      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+        Об <span class="text-[rgb(var(--accent))]">авторе</span>
+      </h1>
+    </div>
+
+    <!-- Фото + краткая инфо -->
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
+      <!-- Фото-placeholder -->
+      <div class="flex-shrink-0">
+        <div class="w-48 h-48 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 text-6xl font-bold">
+          КО
+        </div>
+        <p class="text-center text-sm text-gray-400 mt-2"><!-- [ЗАПОЛНИТЬ: добавить фото] --></p>
+      </div>
+
+      <!-- Краткая информация -->
+      <div class="flex-1">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Карпова Ольга</h2>
+        <p class="text-lg text-gray-600 mb-4">
+          Эксперт по здоровому образу жизни и питанию. Помогаю людям разобраться
+          в вопросах нутрициологии, наладить питание и сформировать полезные привычки
+          для долгосрочного здоровья.
+        </p>
+        <p class="text-gray-500">
+          <!-- [ЗАПОЛНИТЬ: добавить краткое представление — город, возраст, ключевой опыт] -->
+        </p>
+      </div>
+    </div>
+
+    <!-- Биография -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Обо мне</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
+        <p>
+          Я верю, что здоровье — это не про жёсткие диеты и изнурительные тренировки.
+          Это про понимание своего тела, осознанный выбор продуктов и маленькие ежедневные
+          привычки, которые со временем дают большие результаты.
+        </p>
+        <p>
+          В своём блоге я делюсь практическими знаниями о питании, водном балансе,
+          физической активности и ментальном здоровье. Каждая статья основана на
+          научных данных и реальном опыте работы с клиентами.
+        </p>
+        <p>
+          <!-- [ЗАПОЛНИТЬ: добавить личную историю — как пришли в нутрициологию, мотивация, ключевые моменты] -->
+        </p>
+      </div>
+    </section>
+
+    <!-- Образование и сертификаты -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Образование и сертификаты</h2>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p class="font-semibold text-gray-900">Нутрициология и диетология</p>
+            <p class="text-gray-500"><!-- [ЗАПОЛНИТЬ: учебное заведение, год] --></p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p class="font-semibold text-gray-900">Сертификат специалиста</p>
+            <p class="text-gray-500"><!-- [ЗАПОЛНИТЬ: сертификат, организация, год] --></p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p class="font-semibold text-gray-900">Повышение квалификации</p>
+            <p class="text-gray-500"><!-- [ЗАПОЛНИТЬ: курс, год] --></p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Опыт работы -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Опыт</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="text-center p-6 bg-white rounded-lg shadow-md">
+          <p class="text-4xl font-bold text-[rgb(var(--accent))]"><!-- [ЗАПОЛНИТЬ] -->5+</p>
+          <p class="mt-2 text-gray-600">лет в нутрициологии</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-lg shadow-md">
+          <p class="text-4xl font-bold text-[rgb(var(--accent))]"><!-- [ЗАПОЛНИТЬ] -->100+</p>
+          <p class="mt-2 text-gray-600">довольных клиентов</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-lg shadow-md">
+          <p class="text-4xl font-bold text-[rgb(var(--accent))]"><!-- [ЗАПОЛНИТЬ] -->50+</p>
+          <p class="mt-2 text-gray-600">экспертных статей</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Мой подход -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Мой подход</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="p-6 bg-green-50 rounded-lg">
+          <h3 class="font-bold text-gray-900 mb-2">Наука, а не мифы</h3>
+          <p class="text-gray-600">Все рекомендации основаны на доказательной медицине и актуальных исследованиях.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-lg">
+          <h3 class="font-bold text-gray-900 mb-2">Индивидуальный подход</h3>
+          <p class="text-gray-600">Нет универсальных диет. Каждый организм уникален, и подход должен быть персональным.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-lg">
+          <h3 class="font-bold text-gray-900 mb-2">Устойчивые привычки</h3>
+          <p class="text-gray-600">Не краткосрочные диеты, а долгосрочные изменения образа жизни.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-lg">
+          <h3 class="font-bold text-gray-900 mb-2">Практичность</h3>
+          <p class="text-gray-600">Конкретные рекомендации, которые можно применить прямо сейчас.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center py-8 mb-8 bg-gray-100 rounded-2xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Хотите начать путь к здоровью?</h2>
+      <p class="text-gray-600 mb-6 max-w-xl mx-auto">
+        Присоединяйтесь к бесплатному марафону «Нормализация веса за 12 недель» —
+        разберём ваши вопросы с практикующим нутрициологом.
+      </p>
+      <a
+        href="https://lk.getfit.su/link/67srjzjg1"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        class="inline-block px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+      >
+        ЗАПИСАТЬСЯ НА МАРАФОН
+      </a>
+      <p class="text-xs text-gray-400 mt-4">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 2VtzqXXXXXXXXXXX</p>
+    </section>
+  </div>
+</Layout>
