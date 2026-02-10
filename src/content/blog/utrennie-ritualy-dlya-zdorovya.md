@@ -46,7 +46,7 @@ image: "/images/covers/utrennie-ritualy.webp"
 
 Не тренировка. Не бег. Просто 5 минут мягкого движения, чтобы разбудить тело.
 
-![Утренняя зарядка](/images/articles/utrennyaya-zaryadka.webp)
+![Утренняя зарядка](/astra/images/articles/utrennyaya-zaryadka.webp)
 
 Что делать:
 

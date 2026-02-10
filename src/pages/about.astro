@@ -6,6 +6,13 @@ const siteURL = Astro.site?.toString().replace(/\/$/, '') + base;
 ---
 
 <Layout title="Об авторе — Карпова Ольга" description="Карпова Ольга — эксперт по здоровому образу жизни и питанию. Узнайте больше об авторе блога, образовании и опыте работы.">
+  <!-- Хлебные крошки -->
+  <nav class="text-sm text-gray-500 mb-4 flex items-center gap-1 max-w-4xl mx-auto">
+    <a href={base} class="hover:text-[rgb(var(--accent))] transition-colors">Главная</a>
+    <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    <span class="text-gray-700">Об авторе</span>
+  </nav>
+
   <!-- ProfilePage Schema -->
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
