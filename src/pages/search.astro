@@ -44,16 +44,26 @@ const base = import.meta.env.BASE_URL;
         .pagefind-ui__search-input {
             border-radius: 0.75rem !important;
             border: 2px solid #e5e7eb !important;
-            padding: 0.75rem 1rem !important;
+            padding: 0.75rem 1rem 0.75rem 3rem !important;
             font-size: 1.1rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
         .pagefind-ui__search-input:focus {
             border-color: rgb(var(--accent)) !important;
             outline: none !important;
             box-shadow: 0 0 0 3px rgba(var(--accent), 0.1) !important;
         }
+        .pagefind-ui__search-clear {
+            right: 0.75rem !important;
+        }
         .pagefind-ui__result-link {
             color: rgb(var(--accent)) !important;
+        }
+        .pagefind-ui__form::before {
+            left: 1rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
         }
     </style>
 </Layout>
