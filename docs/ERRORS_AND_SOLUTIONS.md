@@ -125,4 +125,20 @@ cp "E:/folder/file" "E:/dest/"
 
 ---
 
-*Последнее обновление: 09.02.2026*
+## 8. Два workflow конфликтуют — сайт показывает 404
+
+**Симптом:** Workflow-ы проходят success, но сайт показывает 404.
+
+**Причина:** В `.github/workflows/` было два файла:
+- `deploy.yml` — правильный (собирает Astro → деплоит в gh-pages)
+- `static.yml` — ошибочный (деплоит raw исходники через GitHub Actions artifact)
+
+`static.yml` перезатирал нормальный деплой и мог переключить Pages Source на «GitHub Actions».
+
+**Решение:**
+1. Удалить `static.yml`
+2. Проверить Settings → Pages → Source: **Deploy from a branch** → **gh-pages / root**
+
+---
+
+*Последнее обновление: 10.02.2026*
