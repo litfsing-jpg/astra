@@ -25,8 +25,45 @@ image: "/images/covers/shablon-statyi.webp"
 ║  - image: путь к обложке в public/images/covers/         ║
 ║                                                          ║
 ║  CTA-кнопка появится автоматически в конце статьи!       ║
-║  Ничего дополнительно вставлять не нужно.                ║
+║  Но можно вставлять свои кнопки в любое место — см. ниже ║
 ╚══════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════
+  ГОТОВЫЕ КНОПКИ — КОПИРУЙ И ВСТАВЛЯЙ
+  Меняй: текст кнопки, ссылку, цвет
+═══════════════════════════════════════════
+
+ЗЕЛЁНАЯ КНОПКА (основная):
+
+<div style="text-align: center; margin: 30px 0;">
+<a href="https://lk.getfit.su/link/67srjzjg1" target="_blank" rel="noopener noreferrer nofollow" style="display: inline-block; padding: 16px 32px; background: #16a34a; color: white; font-weight: bold; font-size: 18px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(22,163,74,0.3);">ТЕКСТ КНОПКИ</a>
+</div>
+
+СИНЯЯ КНОПКА:
+
+<div style="text-align: center; margin: 30px 0;">
+<a href="https://lk.getfit.su/link/67srjzjg1" target="_blank" rel="noopener noreferrer nofollow" style="display: inline-block; padding: 16px 32px; background: #2563eb; color: white; font-weight: bold; font-size: 18px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">ТЕКСТ КНОПКИ</a>
+</div>
+
+ОРАНЖЕВАЯ КНОПКА:
+
+<div style="text-align: center; margin: 30px 0;">
+<a href="https://lk.getfit.su/link/67srjzjg1" target="_blank" rel="noopener noreferrer nofollow" style="display: inline-block; padding: 16px 32px; background: #ea580c; color: white; font-weight: bold; font-size: 18px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(234,88,12,0.3);">ТЕКСТ КНОПКИ</a>
+</div>
+
+ВЫДЕЛЕННЫЙ ТЕКСТ (цветной блок):
+
+<div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 16px 20px; margin: 20px 0; border-radius: 8px;">
+<strong>Важно:</strong> Ваш текст здесь. Можно менять цвет фона и полоски.
+</div>
+
+ЦВЕТА: #16a34a=зелёный, #2563eb=синий, #ea580c=оранжевый, #dc2626=красный, #7c3aed=фиолетовый
+РАЗМЕР ШРИФТА: font-size: 18px (меньше=16px, больше=22px)
+
+После кнопки не забудь рекламную пометку:
+<p style="text-align: center; font-size: 12px; color: #999;">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 2VtzqXXXXXXXXXXX</p>
+
+═══════════════════════════════════════════
 -->
 
 ## Почему завтрак так важен
