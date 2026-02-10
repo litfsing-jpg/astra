@@ -55,6 +55,7 @@ const breadcrumbItems = [
         <meta property="twitter:image" content={new URL(image, Astro.url)} />
         
 		<title>{title}</title>
+        <link rel="alternate" type="application/rss+xml" title="Блог Карповой Ольги" href={`${base}rss.xml`} />
         <ViewTransitions />
 
         <!-- Верификация поисковиков (замените placeholder на свои коды) -->
