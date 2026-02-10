@@ -23,12 +23,34 @@ Vault = папка проекта `E:\anti\seo-blog`.
 - Папка `docs/` — документация (эта шпаргалка, ошибки)
 - Остальные папки (`src/pages/`, `src/components/`) — код сайта, трогать не нужно
 
+### Установить плагин Obsidian Git
+
+1. Obsidian → Settings (⚙️) → Community plugins → Turn on community plugins
+2. Browse → поиск **«Obsidian Git»** → Install → Enable
+3. Настройки плагина (Settings → Obsidian Git):
+   - **Auto pull interval**: `10` (минут) — автоматически подтягивать изменения
+   - **Auto commit-and-push interval**: `0` (выключено — пушим вручную, когда готовы)
+   - **Commit message**: `Blog: {{date}}` (или свой шаблон)
+
+### Как пушить из Obsidian
+
+**Способ 1 — Команда:**
+- Ctrl+P → набрать «Obsidian Git: Commit all changes and push» → Enter
+
+**Способ 2 — Боковая панель:**
+- Откройте иконку Git в левой панели (ветка с точками)
+- Нажмите **+** (stage all) → введите сообщение коммита → нажмите **✓** (commit) → нажмите **↑** (push)
+
+**Способ 3 — Горячая клавиша:**
+- Settings → Hotkeys → найти «Obsidian Git: Commit all changes and push»
+- Назначить, например, `Ctrl+Shift+P`
+
 ### Рабочий процесс
 
 1. Открыли Obsidian → перешли в `src/content/blog/`
 2. Создали файл `.mdx` → написали статью
 3. Фото положили в `public/images/covers/` или `public/images/articles/`
-4. Запушили через терминал, VS Code или GitHub Desktop (см. раздел «Опубликовать»)
+4. Ctrl+P → «Commit all changes and push» — готово, через 1-2 мин сайт обновится
 
 ### Нюанс с CTA-кнопками
 
