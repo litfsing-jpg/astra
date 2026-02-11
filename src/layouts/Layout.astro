@@ -14,7 +14,7 @@ interface Props {
     publishDate?: string;
 }
 
-const { title, description = "Блог Карповой Ольги о здоровом образе жизни, питании и привычках.", image = "/seo-image.jpg", articleSchema, publishDate } = Astro.props;
+const { title, description = "Блог Карповой Ольги о здоровом образе жизни, питании и привычках.", image = "/seo-image.webp", articleSchema, publishDate } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const base = import.meta.env.BASE_URL;
 const siteURL = Astro.site?.toString().replace(/\/$/, '') + base;

@@ -7,8 +7,8 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const title = "Блог Карповой Ольги";
-const description = "Статьи о здоровом образе жизни, питании и привычках.";
+const title = "Здороволог — блог о здоровье и питании | Карпова Ольга";
+const description = "Практические советы по здоровому питанию, похудению и полезным привычкам от нутрициолога Карповой Ольги. Научный подход без диет и ограничений.";
 ---
 
 <Layout title={title} description={description}>
