@@ -6,7 +6,7 @@ export async function GET(context: APIContext) {
   const site = context.site!.toString().replace(/\/$/, '');
 
   const items = posts.map((post) => {
-    const link = `${site}/astra/blog/${post.slug}/`;
+    const link = `${site}/blog/${post.slug}/`;
     const pubDate = post.data.pubDate.toUTCString();
     return `    <item>
       <title><![CDATA[${post.data.title}]]></title>
@@ -22,9 +22,9 @@ export async function GET(context: APIContext) {
   <channel>
     <title><![CDATA[Блог Карповой Ольги]]></title>
     <description><![CDATA[Практические советы по здоровому образу жизни, питанию и полезным привычкам]]></description>
-    <link>${site}/astra/</link>
+    <link>${site}/</link>
     <language>ru</language>
-    <atom:link href="${site}/astra/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="${site}/rss.xml" rel="self" type="application/rss+xml"/>
 ${items}
   </channel>
 </rss>`;

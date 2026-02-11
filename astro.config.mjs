@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://litfsing-jpg.github.io',
-  base: '/astra/',
+  site: 'https://zdravolog.ru',
+  base: '/',
   integrations: [tailwind(), sitemap(), mdx()]
 });
