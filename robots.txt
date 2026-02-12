@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://litfsing-jpg.github.io/astra/sitemap-index.xml
+Sitemap: https://zdravolog.ru/sitemap-index.xml
