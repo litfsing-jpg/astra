@@ -36,7 +36,10 @@ const breadcrumbItems = [
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<meta name="generator" content={Astro.generator} />
         <link rel="canonical" href={canonicalURL} />
 
@@ -84,9 +87,15 @@ const breadcrumbItems = [
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Карпова Ольга",
-            "url": siteURL,
-            "jobTitle": "Эксперт по здоровому образу жизни и питанию",
-            "sameAs": []
+            "url": `${siteURL}about/`,
+            "image": `${siteURL}images/olga-karpova.jpg`,
+            "jobTitle": "Нутрициолог-практик",
+            "description": "Нутрициолог с 12-летним опытом. Помогаю наладить питание и сформировать здоровые привычки.",
+            "email": "info@zdravolog-karpova.ru",
+            "sameAs": [
+                "https://t.me/olgakarpovaking",
+                "https://vk.ru/id573975171"
+            ]
         })} />
 
         {/* WebSite — всегда */}
