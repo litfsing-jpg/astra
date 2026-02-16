@@ -19,8 +19,8 @@ const h2 = headings.filter(h => h.depth === 2);
 
 // Чередуем фото автора по первому символу slug
 const authorPhoto = post.slug.charCodeAt(0) % 2 === 0
-  ? `${base}images/olga-karpova.jpg`
-  : `${base}images/olga-karpova-2.jpg`;
+  ? `${base}images/olga-karpova-80.webp`
+  : `${base}images/olga-karpova-2-80.webp`;
 ---
 
 <Layout title={post.data.title} description={post.data.description} image={post.data.image} articleSchema publishDate={post.data.pubDate.toISOString()}>
