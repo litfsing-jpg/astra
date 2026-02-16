@@ -7,5 +7,11 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: 'https://zdravolog.ru',
   base: '/',
-  integrations: [tailwind(), sitemap(), mdx()]
+  integrations: [
+    tailwind(),
+    sitemap({
+      filter: (page) => !page.includes('/search'),
+    }),
+    mdx()
+  ]
 });

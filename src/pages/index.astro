@@ -7,17 +7,17 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const title = "Здороволог — блог о здоровье и питании | Карпова Ольга";
+const title = "Здраволог — блог о здоровье и питании | Карпова Ольга";
 const description = "Практические советы по здоровому питанию, похудению и полезным привычкам от нутрициолога Карповой Ольги. Научный подход без диет и ограничений.";
 ---
 
 <Layout title={title} description={description}>
     <div class="text-center py-12">
         <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            Блог о <span class="text-[rgb(var(--accent))]">здоровье</span>
+            Советы нутрициолога о <span class="text-[rgb(var(--accent))]">здоровье и питании</span>
         </h1>
         <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
-            Практические советы, исследования и рекомендации по улучшению качества жизни.
+            Научный подход без жёстких диет. Практические рекомендации нутрициолога Карповой Ольги.
         </p>
     </div>
 

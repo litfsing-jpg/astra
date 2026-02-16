@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Страница не найдена — Здраволог"
+  description="Запрашиваемая страница не существует. Вернитесь на главную или перейдите в раздел Блог."
+>
+  <div class="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 py-20">
+    <p class="text-8xl font-extrabold text-[rgb(var(--accent))] mb-4">404</p>
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">Страница не найдена</h1>
+    <p class="text-lg text-gray-500 max-w-md mb-8">
+      Возможно, адрес изменился или страница была удалена. Попробуйте вернуться на главную или перейти в блог.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a
+        href={base}
+        class="px-6 py-3 bg-[rgb(var(--accent))] hover:opacity-90 text-white font-semibold rounded-xl transition-all duration-200"
+      >
+        На главную
+      </a>
+      <a
+        href={`${base}blog`}
+        class="px-6 py-3 border-2 border-[rgb(var(--accent))] text-[rgb(var(--accent))] hover:bg-green-50 font-semibold rounded-xl transition-all duration-200"
+      >
+        В блог
+      </a>
+    </div>
+  </div>
+</Layout>

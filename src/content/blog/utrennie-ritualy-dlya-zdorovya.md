@@ -37,7 +37,7 @@ image: "/images/covers/utrennie-ritualy.webp"
 -->
 
 <div style="text-align: center; margin: 30px 0;">
-<a href="https://lk.getfit.su/link/67srjzjg1" target="_blank" rel="noopener noreferrer nofollow" style="display: inline-block; padding: 16px 32px; background: #16a34a; color: white; font-weight: bold; font-size: 18px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(22,163,74,0.3);">УЗНАТЬ БОЛЬШЕ О ПИТАНИИ</a>
+<a href="https://lk.getfit.su/link/67srjzjg1?utm_source=partner&utm_medium=seo&utm_campaign=utrennie_ritualy&utm_content=cta_mid" target="_blank" rel="noopener noreferrer nofollow" style="display: inline-block; padding: 16px 32px; background: #16a34a; color: white; font-weight: bold; font-size: 18px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(22,163,74,0.3);">УЗНАТЬ БОЛЬШЕ О ПИТАНИИ</a>
 </div>
 
 <p style="text-align: center; font-size: 12px; color: #999;">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 2VtzqXXXXXXXXXXX</p>
@@ -141,7 +141,7 @@ image: "/images/covers/utrennie-ritualy.webp"
 
 <!-- Кнопка: синяя, крупная -->
 <div style="text-align: center; margin: 30px 0;">
-<a href="https://lk.getfit.su/link/67srjzjg1" target="_blank" rel="noopener noreferrer nofollow" style="display: inline-block; padding: 18px 40px; background: #2563eb; color: white; font-weight: bold; font-size: 20px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">ЗАПИСАТЬСЯ НА МАРАФОН БЕСПЛАТНО</a>
+<a href="https://lk.getfit.su/link/67srjzjg1?utm_source=partner&utm_medium=seo&utm_campaign=utrennie_ritualy&utm_content=cta_end" target="_blank" rel="noopener noreferrer nofollow" style="display: inline-block; padding: 18px 40px; background: #2563eb; color: white; font-weight: bold; font-size: 20px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">ЗАПИСАТЬСЯ НА МАРАФОН БЕСПЛАТНО</a>
 </div>
 
 <p style="text-align: center; font-size: 12px; color: #999;">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 2VtzqXXXXXXXXXXX</p>
