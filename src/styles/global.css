@@ -14,15 +14,34 @@
   );
 }
 
+/* Fallback-шрифты с подобранными метриками — уменьшает CLS при загрузке веб-шрифтов */
+@font-face {
+  font-family: 'Montserrat-Fallback';
+  src: local('Arial');
+  ascent-override: 91.59%;
+  descent-override: 24.04%;
+  line-gap-override: 0%;
+  size-adjust: 103.63%;
+}
+
+@font-face {
+  font-family: 'Open-Sans-Fallback';
+  src: local('Arial');
+  ascent-override: 106.88%;
+  descent-override: 29.30%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open-Sans-Fallback', sans-serif;
   background: #ffffff;
   background-size: 224px;
   scroll-behavior: smooth;
 }
 
-h1, for, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Montserrat-Fallback', sans-serif;
 }
 
 code {

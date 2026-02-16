@@ -7,6 +7,9 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: 'https://zdravolog.ru',
   base: '/',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     tailwind(),
     sitemap({
