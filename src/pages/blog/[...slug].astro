@@ -15,6 +15,11 @@ const post = Astro.props;
 const { Content } = await post.render();
 const base = import.meta.env.BASE_URL;
 const faq = post.data.faq;
+
+// Чередуем фото автора по первому символу slug
+const authorPhoto = post.slug.charCodeAt(0) % 2 === 0
+  ? `${base}images/olga-karpova.jpg`
+  : `${base}images/olga-karpova-2.jpg`;
 ---
 
 <Layout title={post.data.title} description={post.data.description} image={post.data.image} articleSchema publishDate={post.data.pubDate.toISOString()}>
@@ -70,8 +75,32 @@ const faq = post.data.faq;
             </section>
         )}
 
+        <!-- Блок автора -->
+        <div class="mt-12 not-prose border-t pt-8">
+            <div class="flex items-center gap-4">
+                <img
+                    src={authorPhoto}
+                    alt="Карпова Ольга — нутрициолог"
+                    width="64"
+                    height="64"
+                    class="w-16 h-16 rounded-full object-cover shadow flex-shrink-0"
+                    loading="lazy"
+                />
+                <div>
+                    <p class="font-bold text-gray-900 text-lg leading-tight">Карпова Ольга</p>
+                    <p class="text-sm text-[rgb(var(--accent))] font-semibold">Нутрициолог-практик · 12 лет опыта</p>
+                    <p class="text-sm text-gray-500 mt-1">Помогаю наладить питание и сформировать здоровые привычки без жёстких диет.</p>
+                    <div class="flex gap-3 mt-2">
+                        <a href="https://t.me/olgakarpovaking" target="_blank" rel="noopener noreferrer" class="text-sky-500 hover:text-sky-600 text-sm font-medium transition-colors">Telegram</a>
+                        <span class="text-gray-300">·</span>
+                        <a href="https://vk.ru/id573975171" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">ВКонтакте</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- CTA-блок — автоматически в конце каждой статьи -->
-        <div class="mt-12 p-8 bg-gray-50 rounded-2xl text-center not-prose">
+        <div class="mt-8 p-8 bg-gray-50 rounded-2xl text-center not-prose">
             <h3 class="text-xl font-bold text-gray-900 mb-3">Хотите разобраться в питании и здоровье?</h3>
             <p class="text-gray-600 mb-6">Приглашаю на бесплатный 3-дневный марафон «Нормализация веса за 12 недель» — разберём ваши вопросы с нутрициологом.</p>
             <a
@@ -82,7 +111,7 @@ const faq = post.data.faq;
             >
                 ЗАПИСАТЬСЯ НА МАРАФОН
             </a>
-            <p class="text-xs text-gray-400 mt-4">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 2VtzqXXXXXXXXXXX</p>
+            <p class="text-xs text-gray-400 mt-4">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 67srjzjg1</p>
         </div>
 	</article>
 

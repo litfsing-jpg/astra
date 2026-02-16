@@ -1,9 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const base = import.meta.env.BASE_URL;
+const siteURL = Astro.site?.toString().replace(/\/$/, '') + base;
 ---
 
-<Layout title="Контакты — Карпова Ольга" description="Свяжитесь с Карповой Ольгой — Telegram, email, сотрудничество. Задайте вопрос по питанию и здоровому образу жизни.">
+<Layout title="Контакты — Карпова Ольга | Нутрициолог" description="Свяжитесь с Карповой Ольгой — Telegram @olgakarpovaking, email info@zdravolog-karpova.ru, ВКонтакте. Задайте вопрос по питанию и здоровью.">
+
+  <!-- ContactPage Schema -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Контакты — Карпова Ольга",
+      "url": `${siteURL}contacts`,
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Карпова Ольга",
+        "jobTitle": "Нутрициолог-практик",
+        "email": "info@zdravolog-karpova.ru",
+        "sameAs": [
+          "https://t.me/olgakarpovaking",
+          "https://vk.ru/id573975171"
+        ]
+      }
+    })} />
+  </Fragment>
+
   <div class="max-w-4xl mx-auto">
     <!-- Хлебные крошки -->
     <nav class="text-sm text-gray-500 mb-4 flex items-center gap-1">
@@ -23,77 +45,93 @@ const base = import.meta.env.BASE_URL;
       </p>
     </div>
 
+    <!-- Фото + представление -->
+    <div class="flex flex-col sm:flex-row items-center gap-6 mb-12 p-6 bg-white rounded-2xl shadow-md">
+      <img
+        src={`${base}images/olga-karpova.jpg`}
+        alt="Карпова Ольга — нутрициолог"
+        width="120"
+        height="120"
+        class="w-24 h-24 rounded-full object-cover shadow flex-shrink-0"
+      />
+      <div>
+        <p class="text-xl font-bold text-gray-900">Карпова Ольга</p>
+        <p class="text-[rgb(var(--accent))] font-semibold text-sm mb-2">Нутрициолог-практик · 12 лет опыта</p>
+        <p class="text-gray-600 text-sm">Отвечаю на вопросы о питании, весе и здоровых привычках. Пишите — отвечу в течение суток.</p>
+      </div>
+    </div>
+
     <!-- Каналы связи -->
     <div class="grid gap-6 md:grid-cols-2 mb-12">
       <!-- Telegram -->
       <a
-        href="https://t.me/[ЗАПОЛНИТЬ]"
+        href="https://t.me/olgakarpovaking"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center gap-4 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group"
       >
-        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-          <svg class="w-7 h-7 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        <div class="w-14 h-14 bg-sky-100 rounded-full flex items-center justify-center group-hover:bg-sky-200 transition-colors flex-shrink-0">
+          <svg class="w-7 h-7 text-sky-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.27 13.627l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.878.932z"/>
           </svg>
         </div>
         <div>
           <p class="font-bold text-gray-900 text-lg">Telegram</p>
-          <p class="text-gray-500">@[ЗАПОЛНИТЬ]</p>
-          <p class="text-sm text-gray-400">Быстрый способ связаться</p>
+          <p class="text-sky-600 font-semibold">@olgakarpovaking</p>
+          <p class="text-sm text-gray-400 mt-1">Быстрый способ связаться</p>
         </div>
       </a>
 
       <!-- Email -->
       <a
-        href="mailto:[ЗАПОЛНИТЬ]@mail.ru"
+        href="mailto:info@zdravolog-karpova.ru"
         class="flex items-center gap-4 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group"
       >
-        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center group-hover:bg-red-200 transition-colors">
+        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center group-hover:bg-red-200 transition-colors flex-shrink-0">
           <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
         </div>
         <div>
           <p class="font-bold text-gray-900 text-lg">Email</p>
-          <p class="text-gray-500">[ЗАПОЛНИТЬ]@mail.ru</p>
-          <p class="text-sm text-gray-400">Для деловых предложений</p>
+          <p class="text-red-600 font-semibold">info@zdravolog-karpova.ru</p>
+          <p class="text-sm text-gray-400 mt-1">Для деловых предложений</p>
         </div>
       </a>
 
       <!-- VK -->
       <a
-        href="https://vk.com/[ЗАПОЛНИТЬ]"
+        href="https://vk.ru/id573975171"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center gap-4 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group"
       >
-        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors flex-shrink-0">
           <svg class="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.339-3.202-2.17-3.042-2.763-5.32-2.763-5.778 0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/>
+            <path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.585-1.496c.598-.19 1.365 1.26 2.182 1.818.615.422 1.082.33 1.082.33l2.17-.03s1.135-.07.597-1.437c-.044-.103-.313-.66-1.61-1.868-1.36-1.265-1.176-1.06.46-3.246.997-1.328 1.394-2.14 1.27-2.486-.12-.33-.852-.242-.852-.242l-2.44.015s-.18-.025-.315.055c-.132.078-.217.26-.217.26s-.386 1.026-.9 1.898c-1.086 1.844-1.52 1.942-1.698 1.827-.412-.267-.31-1.074-.31-1.648 0-1.793.27-2.54-.528-2.733-.266-.064-.46-.107-1.137-.114-.87-.009-1.606.002-2.022.207-.277.136-.49.44-.36.457.16.022.522.098.715.36.248.34.24 1.103.24 1.103s.143 2.11-.333 2.372c-.327.179-.775-.187-1.737-1.86-.493-.852-.866-1.796-.866-1.796s-.072-.176-.202-.27c-.157-.114-.376-.15-.376-.15l-2.32.015s-.348.01-.476.16c-.114.134-.01.41-.01.41s1.82 4.255 3.876 6.4c1.888 1.973 4.03 1.843 4.03 1.843h.97z"/>
           </svg>
         </div>
         <div>
           <p class="font-bold text-gray-900 text-lg">ВКонтакте</p>
-          <p class="text-gray-500"><!-- [ЗАПОЛНИТЬ: ссылка на профиль] --></p>
-          <p class="text-sm text-gray-400">Подписывайтесь на обновления</p>
+          <p class="text-blue-600 font-semibold">vk.ru/id573975171</p>
+          <p class="text-sm text-gray-400 mt-1">Подписывайтесь на обновления</p>
         </div>
       </a>
 
       <!-- Блог -->
       <a
-        href={`${import.meta.env.BASE_URL}blog`}
+        href={`${base}blog`}
         class="flex items-center gap-4 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group"
       >
-        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors">
+        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors flex-shrink-0">
           <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
           </svg>
         </div>
         <div>
           <p class="font-bold text-gray-900 text-lg">Блог</p>
-          <p class="text-gray-500">Статьи о здоровье и питании</p>
-          <p class="text-sm text-gray-400">Новые материалы каждую неделю</p>
+          <p class="text-green-600 font-semibold">zdravolog.ru/blog</p>
+          <p class="text-sm text-gray-400 mt-1">Новые статьи каждую неделю</p>
         </div>
       </a>
     </div>
@@ -131,7 +169,7 @@ const base = import.meta.env.BASE_URL;
         </li>
       </ul>
       <p class="text-gray-500 mt-4 text-sm">
-        По всем вопросам сотрудничества пишите на email или в Telegram.
+        По всем вопросам пишите в Telegram <a href="https://t.me/olgakarpovaking" class="text-sky-600 hover:underline" target="_blank" rel="noopener noreferrer">@olgakarpovaking</a> или на email <a href="mailto:info@zdravolog-karpova.ru" class="text-red-600 hover:underline">info@zdravolog-karpova.ru</a>.
       </p>
     </section>
   </div>

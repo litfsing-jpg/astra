@@ -66,7 +66,7 @@ faq:
 РАЗМЕР ШРИФТА: font-size: 18px (меньше=16px, больше=22px)
 
 После кнопки не забудь рекламную пометку:
-<p style="text-align: center; font-size: 12px; color: #999;">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 2VtzqXXXXXXXXXXX</p>
+<p style="text-align: center; font-size: 12px; color: #999;">Реклама. ООО "ЭДПРО", ИНН 7704394080, erid: 67srjzjg1</p>
 
 ═══════════════════════════════════════════
 -->
