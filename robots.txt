@@ -3,4 +3,6 @@ Allow: /
 Disallow: /search/
 Disallow: /search
 
+Host: zdravolog.ru
+
 Sitemap: https://zdravolog.ru/sitemap-index.xml
